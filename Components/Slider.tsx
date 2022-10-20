@@ -14,6 +14,7 @@ export default function Slider() {
         <span className="headingM text-neonGreen ">{charNum}</span>
       </div>
       <input
+        className=" slider accent-neonGreen  h-2 w-full "
         type="range"
         min="0"
         max="20"
