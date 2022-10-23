@@ -8,7 +8,7 @@ export default function PasswordInput() {
                 sm:h-20 sm:w-[540px] sm:px-8    "
     >
       <input
-        className=" w-64 appearance-none placeholder:text-almostWhite/25 bg-darkGrey"
+        className=" focus:outline-none w-64 appearance-none placeholder:text-almostWhite/25 bg-darkGrey"
         type="text"
         placeholder="P4$5W0rD!"
       />

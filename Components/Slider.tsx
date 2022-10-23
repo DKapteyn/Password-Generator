@@ -16,7 +16,7 @@ export default function Slider() {
   }
 
   return (
-    <div>
+    <div className="h-[119px]">
       <div className="flex justify-between">
         <h4 className="bodyS sm:body text-grey">Character Length</h4>
         <span className="headingM text-neonGreen ">{charNum}</span>
