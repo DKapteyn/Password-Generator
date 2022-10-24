@@ -3,6 +3,7 @@ import Head from "next/head";
 import Checkboxes from "../Components/Checkboxes";
 import PasswordInput from "../Components/PasswordInput";
 import Slider from "../Components/Slider";
+import StrengthGauge from "../Components/StrengthGauge";
 
 const Home: NextPage = () => {
   return (
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
       <div className="mainDiv flex flex-col bg-darkGrey w-[342px] h-[423px] sm:w-[540px] sm:h-[528px] p-4 sm:px-8 ">
         <Slider />
         <Checkboxes />
+        <StrengthGauge />
       </div>
     </div>
   );
