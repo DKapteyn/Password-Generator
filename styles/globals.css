@@ -47,7 +47,6 @@
       grid-column: 1/1;
       grid-row: 1/1;
     }
-
     input[type="checkbox"] {
       appearance: none;
       border: 2px solid #e6e5ea;
@@ -68,14 +67,14 @@
     input[type="checkbox"]:before {
       content: url(/images/icon-check.svg);
       position: absolute;
-      top: -4px;
+
+      @apply -top-[2px] sm:-top-[5px];
     }
 
     .checkboxes > span {
       font-size: 18px;
       line-height: 24px;
     }
-
     input[type="range"] {
       -webkit-appearance: none;
       background-color: transparent;
@@ -118,7 +117,6 @@
     border: 2px solid #a4ffaf;
     @apply h-7 w-7 rounded-full;
   }
-
   .strengthBox {
     @apply border-2 h-7 w-[10px];
   }

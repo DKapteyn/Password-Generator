@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Button from "../Components/Button";
 import Checkboxes from "../Components/Checkboxes";
 import PasswordInput from "../Components/PasswordInput";
 import Slider from "../Components/Slider";
@@ -24,10 +25,11 @@ const Home: NextPage = () => {
       </Head>
       <h1 className="body sm:headingM text-grey w-fit">Password Generator</h1>
       <PasswordInput />
-      <div className="mainDiv flex flex-col bg-darkGrey w-[342px] h-[423px] sm:w-[540px] sm:h-[528px] p-4 sm:px-8 ">
+      <div className="mainDiv flex flex-col bg-darkGrey w-full h-[423px] sm:w-[540px] sm:h-[528px] p-4 sm:px-8 ">
         <Slider />
         <Checkboxes />
         <StrengthGauge />
+        <Button />
       </div>
     </div>
   );

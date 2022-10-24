@@ -2,65 +2,119 @@ import React, { useReducer } from "react";
 import { strengthActionT, strengthStateT } from "../type";
 
 export default function StrengthGauge() {
+  const emptyBox = {
+    //veryDarkGrey
+    backgroundColor: `#18171F`,
+    //almostWhite
+    borderColor: "#E6E5EA",
+  };
+  const redBox = {
+    //red
+    backgroundColor: `#F64A4A`,
+    //red
+    borderColor: "#F64A4A",
+  };
+
+  const orangeBox = {
+    //orange
+    backgroundColor: `#FB7C58`,
+    //orange
+    borderColor: "#FB7C58",
+  };
+
+  const yellowBox = {
+    //yellow
+    backgroundColor: `#F8CD65`,
+    //yellow
+    borderColor: "#F8CD65",
+  };
+
+  const greenBox = {
+    //neonGreen
+    backgroundColor: `#A4FFAF`,
+    //neonGreen
+    borderColor: "#A4FFAF",
+  };
+
   const initialStrengthState = {
-    name: "john",
+    name: "",
     box1: {
-      backgroundColor: `#18171F`,
-      borderColor: "#E6E5EA",
+      ...emptyBox,
     },
     box2: {
-      backgroundColor: `#18171F`,
-      borderColor: "#E6E5EA",
+      ...emptyBox,
     },
     box3: {
-      backgroundColor: `#18171F`,
-      borderColor: "#E6E5EA",
+      ...emptyBox,
     },
     box4: {
-      backgroundColor: `#18171F`,
-      borderColor: "#E6E5EA",
+      ...emptyBox,
     },
   };
   function reducer(state: strengthStateT, action: strengthActionT) {
     switch (action.type) {
       case "tooWeak":
         return {
-          name: "",
+          name: "too weak!",
           box1: {
-            backgroundColor: `var(--grey)`,
-            borderColor: `var(--almostWhite)`,
+            ...redBox,
           },
           box2: {
-            backgroundColor: `var(--grey)`,
-            borderColor: `var(--almostWhite)`,
+            ...emptyBox,
           },
           box3: {
-            backgroundColor: `var(--veryDarkGrey)`,
-            borderColor: `var(--almostWhite)`,
+            ...emptyBox,
           },
           box4: {
-            backgroundColor: `var(--veryDarkGrey)`,
-            borderColor: `var(--almostWhite)`,
+            ...emptyBox,
           },
         };
-      case "Weak":
+      case "weak":
         return {
-          name: "",
+          name: "weak",
           box1: {
-            backgroundColor: `var(--veryDarkGrey)`,
-            borderColor: `var(--almostWhite)`,
+            ...orangeBox,
           },
           box2: {
-            backgroundColor: `var(--veryDarkGrey)`,
-            borderColor: `var(--almostWhite)`,
+            ...orangeBox,
           },
           box3: {
-            backgroundColor: `var(--veryDarkGrey)`,
-            borderColor: `var(--almostWhite)`,
+            ...emptyBox,
           },
           box4: {
-            backgroundColor: `var(--veryDarkGrey)`,
-            borderColor: `var(--almostWhite)`,
+            ...emptyBox,
+          },
+        };
+      case "medium":
+        return {
+          name: "medium",
+          box1: {
+            ...yellowBox,
+          },
+          box2: {
+            ...yellowBox,
+          },
+          box3: {
+            ...yellowBox,
+          },
+          box4: {
+            ...emptyBox,
+          },
+        };
+      case "strong":
+        return {
+          name: "strong",
+          box1: {
+            ...greenBox,
+          },
+          box2: {
+            ...greenBox,
+          },
+          box3: {
+            ...greenBox,
+          },
+          box4: {
+            ...greenBox,
           },
         };
       default:
@@ -71,19 +125,33 @@ export default function StrengthGauge() {
   const [state, dispatch] = useReducer(reducer, initialStrengthState);
 
   return (
-    <div className=" h-14 w-[311px] bg-veryDarkGrey flex justify-between items-center">
-      <span className="bodyS sm:body grey">STRENGTH</span>
+    <div className=" h-14 sm:h-[72px] mt-8 w-full bg-veryDarkGrey flex justify-between items-center px-8">
+      <span className="bodyS sm:body text-grey">STRENGTH</span>
       <div className="flex">
-        <span>{state.name}</span>
+        <span className="mr-4 text-almostWhite uppercase body sm:headingM">
+          {state.name}
+        </span>
         <div className="flex gap-2">
           <div
             onClick={() => dispatch({ type: "tooWeak" })}
             className="strengthBox cursor-pointer"
             style={{ ...state.box1 }}
           ></div>
-          <div className="strengthBox" style={{ ...state.box2 }}></div>
-          <div className="strengthBox" style={{ ...state.box3 }}></div>
-          <div className="strengthBox" style={{ ...state.box4 }}></div>
+          <div
+            onClick={() => dispatch({ type: "weak" })}
+            className="strengthBox"
+            style={{ ...state.box2 }}
+          ></div>
+          <div
+            onClick={() => dispatch({ type: "medium" })}
+            className="strengthBox"
+            style={{ ...state.box3 }}
+          ></div>
+          <div
+            onClick={() => dispatch({ type: "strong" })}
+            className="strengthBox"
+            style={{ ...state.box4 }}
+          ></div>
         </div>
       </div>
     </div>

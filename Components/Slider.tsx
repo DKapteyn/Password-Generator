@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 export default function Slider() {
-  const [charNum, setCharNum] = useState(10);
+  const [charNum, setCharNum] = useState(0);
 
-  const [calcWidth, setCalcWidth] = useState({ width: "50%" });
+  const [calcWidth, setCalcWidth] = useState({ width: "0%" });
 
   function setWidth(string: string) {
     const charLength = parseInt(string) * 5;
