@@ -1,7 +1,19 @@
-import React, { useReducer } from "react";
-import { strengthActionT, strengthStateT } from "../type";
+import React, { useEffect, useReducer } from "react";
+import { strengthActionT, strengthGaugeT, strengthStateT } from "../type";
 
-export default function StrengthGauge() {
+export default function StrengthGauge({ strengthSetting }: strengthGaugeT) {
+  useEffect(() => {
+    strengthSetting === 0
+      ? dispatch({ type: "tooWeak" })
+      : strengthSetting === 1
+      ? dispatch({ type: "weak" })
+      : strengthSetting === 2
+      ? dispatch({ type: "medium" })
+      : strengthSetting === 3
+      ? dispatch({ type: "strong" })
+      : dispatch({ type: "empty" });
+  }, [strengthSetting]);
+
   const emptyBox = {
     //veryDarkGrey
     backgroundColor: `#18171F`,
@@ -115,6 +127,22 @@ export default function StrengthGauge() {
           },
           box4: {
             ...greenBox,
+          },
+        };
+      case "empty":
+        return {
+          name: "",
+          box1: {
+            ...emptyBox,
+          },
+          box2: {
+            ...emptyBox,
+          },
+          box3: {
+            ...emptyBox,
+          },
+          box4: {
+            ...emptyBox,
           },
         };
       default:

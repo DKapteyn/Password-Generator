@@ -1,8 +1,11 @@
-import React, { HtmlHTMLAttributes, useState } from "react";
+import React, { useState } from "react";
+import { PasswordInputT } from "../type";
 
-export default function PasswordInput() {
+export default function PasswordInput({
+  textValue,
+  setTextValue,
+}: PasswordInputT) {
   const [copiedTextVisible, setCopiedTextVisible] = useState(false);
-  const [textValue, setTextValue] = useState("");
 
   async function copyToClipboard() {
     await navigator.clipboard.writeText(textValue);
@@ -13,7 +16,7 @@ export default function PasswordInput() {
     setTextValue(e.target.value);
     if (copiedTextVisible) setCopiedTextVisible(false);
   }
-  console.log(copiedTextVisible);
+
   return (
     <div
       className=" headingM w-full h-16 pl-4 pr-[22px] bg-darkGrey 

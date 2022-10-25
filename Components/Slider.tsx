@@ -1,8 +1,7 @@
 import React, { useState } from "react";
+import { sliderT } from "../type";
 
-export default function Slider() {
-  const [charNum, setCharNum] = useState(0);
-
+export default function Slider({ charNum, setCharNum }: sliderT) {
   const [calcWidth, setCalcWidth] = useState({ width: "0%" });
 
   function setWidth(string: string) {
