@@ -161,25 +161,12 @@ export default function StrengthGauge({ strengthSetting }: strengthGaugeT) {
         </span>
         <div className="flex gap-2">
           <div
-            onClick={() => dispatch({ type: "tooWeak" })}
             className="strengthBox cursor-pointer"
             style={{ ...state.box1 }}
           ></div>
-          <div
-            onClick={() => dispatch({ type: "weak" })}
-            className="strengthBox"
-            style={{ ...state.box2 }}
-          ></div>
-          <div
-            onClick={() => dispatch({ type: "medium" })}
-            className="strengthBox"
-            style={{ ...state.box3 }}
-          ></div>
-          <div
-            onClick={() => dispatch({ type: "strong" })}
-            className="strengthBox"
-            style={{ ...state.box4 }}
-          ></div>
+          <div className="strengthBox" style={{ ...state.box2 }}></div>
+          <div className="strengthBox" style={{ ...state.box3 }}></div>
+          <div className="strengthBox" style={{ ...state.box4 }}></div>
         </div>
       </div>
     </div>
