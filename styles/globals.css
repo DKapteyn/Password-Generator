@@ -40,7 +40,7 @@
     }
 
     .gridWrapper {
-      @apply grid;
+      display: grid;
     }
 
     .gridWrapper > * {
@@ -67,8 +67,12 @@
     input[type="checkbox"]:before {
       content: url(/images/icon-check.svg);
       position: absolute;
-
-      @apply -top-[2px] sm:-top-[5px];
+      top: -2px;
+      @media (min-width: 640px) {
+        .sm\:-top-\[5px\] {
+          top: -5px;
+        }
+      }
     }
 
     .checkboxes > span {
@@ -78,7 +82,8 @@
     input[type="range"] {
       -webkit-appearance: none;
       background-color: transparent;
-      @apply rounded-lg relative;
+      border-radius: 0.5rem;
+      position: relative;
     }
 
     input[type="range"]::-moz-range-track {
